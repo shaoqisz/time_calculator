@@ -377,7 +377,7 @@ class TimestampDifferenceCalculator(QWidget):
             result += f"相差时: {total_seconds / 3600:.2f}\n"
             result += f"相差分: {total_seconds / 60:.2f}\n"
             result += f"相差秒数: {total_seconds:.6f}\n"
-            result += f"相差微秒: {total_seconds*1000000}\n"
+            result += f"相差微秒: {total_seconds*1000000:.0f}\n"
             result += f"相差时间: {years:.0f} 年 {months:.0f} 月 {days:.2f} 天 {hours} 时 {minutes} 分 {seconds} 秒 （月按30天计算）"
 
             self.result_textedit.setPlainText(result)
