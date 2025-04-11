@@ -106,9 +106,11 @@ class MicrosecondTimeWidget(QWidget):
         self.microsecond_input.setValue(now.microsecond)
         layout.addWidget(self.microsecond_input)
 
-        # layout.addWidget(QLabel('Text'))
+        layout.addWidget(QLabel(' = '))
+
         self.display_time = QLineEdit(self)
         layout.addWidget(self.display_time)
+
 
         self.current_ts_btn = QPushButton('Now', self)
         self.current_ts_btn.clicked.connect(self.current_ts_clicked)
@@ -120,6 +122,7 @@ class MicrosecondTimeWidget(QWidget):
 
         self.setLayout(layout)
 
+        self.datetime_edit.dateChanged.connect(self.display_time_slot)
         self.datetime_edit.timeChanged.connect(self.display_time_slot)
         self.microsecond_input.valueChanged.connect(self.display_time_slot)
         # self.microsecond_input.editingFinished.connect(self.zfill_slot)
@@ -175,6 +178,7 @@ class TimestampDifferenceCalculator(QWidget):
 
         diff_layout.addWidget(self.label1)
         diff_layout.addWidget(self.datetime_edit1)
+
 
         # 选择第二个时间戳，默认显示前一天的时间
         self.label2 = QLabel("第二个时间戳:")
